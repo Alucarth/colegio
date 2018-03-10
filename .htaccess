@@ -1,0 +1,11 @@
+Options +FollowSymLinks
+AddType application/x-httpd-php .dex
+RewriteEngine on
+Rewriterule ^(.*)/(.*)/(.*)/(.*)/(.*)/$ index.php?mod=$1&cod=$2&cod_0=$3&cod_1=$4&cod_2=$5 [L]
+Rewriterule ^(.*)/(.*)/(.*)/(.*)/$ index.php?mod=$1&cod=$2&cod_0=$3&cod_1=$4& [L]
+Rewriterule ^(.*)/(.*)/(.*)/$ index.php?mod=$1&cod=$2&cod_0=$3 [L]
+Rewriterule ^(.*)/(.*)/$ index.php?mod=$1&cod=$2 [L]
+Rewriterule ^(.*)/$ index.php?mod=$1 [L]
+RewriteBase /colegio
+RewriteCond %{REQUEST_URI} /+[^.]+$
+RewriteRule ^(.+[^/])$ %{REQUEST_URI}/ [R=301,L] 
